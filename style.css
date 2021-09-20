@@ -1,0 +1,97 @@
+#headerID
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 1%;
+    height: 5%;
+
+    background-color: antiquewhite;
+}
+
+#meny
+{
+    display: flex;
+    justify-content: center;
+}
+
+#meny a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #4F7942;
+    display: block;
+    margin: auto;
+    transition: 0.2s;
+    
+}
+#meny a:hover::after {
+    width: 100%;
+}
+
+#meny a
+{
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: .5em;
+    margin-top: 5%;
+}
+
+#head-icons
+{
+    margin-right: 0.5em;
+}
+
+.icon
+{  
+    cursor: pointer;
+    margin-right: auto;
+    margin-left: auto;
+    height: 5.1vh;
+    width: 5.3vh;
+    min-height: 3vh;
+    min-width: 3vh;
+    background-color: white;
+    border-radius: 0.1em;
+    margin: 0.2em;
+}
+
+.s
+{  
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 300%;
+    width: 100%;
+    /* filter: blur(px) */
+}
+
+#start-clothes
+{
+    display: grid;
+        grid-template-columns: repeat(3, 7fr);
+        grid-template-rows: auto;
+        margin-top: 3%;
+        margin-left: 30%;
+        margin-right: 15%;
+        margin-bottom: 3%;
+        grid-gap: 15px;
+}
+
+#start-clothes
+{
+    position: absolute;
+      top: 300px;
+      right: 70px;
+}
+
+.test
+{
+    height: 40%;
+
+}
+
+#ProductPage
+{ 
+    height: 5000%;
+    width: 100%;
+}
