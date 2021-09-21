@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <title>Document</title>
 </head>
-<body>
-    <header id="headerID">
-       <ul id="meny">
-           <a id="startPlace">Start</a>
-           <a id="productPlace">Produkter</a>
-       </ul>
 
-       <div id="head-icons">
-        <img class="icon" src="images/cart.png" alt="cart">
-        <img class="icon" src="images/heart.png" alt="like">
-        <img class="icon" src="images/profile.JPG" alt="profile">
-        <img class="icon" src="images/search.png" alt="search">
-       </div>
+<body>
+
+    <div id="app">
+    <header id="page-header">
+        <ul id="meny">
+            <a id="startPlace" v-on:click="showStart()">Start</a>
+            <a id="productPlace" v-on:click="showProduct()">Produkter</a>
+        </ul>
+
+        <div id="head-icons">
+            <img class="icon" src="images/cart.png" alt="cart">
+            <img class="icon" src="images/heart.png" alt="like">
+            <img class="icon" src="images/profile.JPG" alt="profile">
+            <img class="icon" src="images/search.png" alt="search">
+        </div>
     </header>
 
-    <section id="sectionSide">
+        <section id="sectionSide">
 
-        <div id="StartPage">
-            <img class="s" src="images/wallpaper2.jpg" alt="cart">
+            <div id="StartPage" v-if="typeOfPage === 'start' || typeOfPage === ''">
 
-            <div id="start-clothes">
+                <img class="s" src="images/wallpaper2.jpg" alt="cart">
 
-                <div>
-                    <img class="test" src="images/kavaj.jpg" alt="search">
-                </div>
-                <div>
-                    <img class="test" src="images/skor.jpg" alt="search">
-                </div>
-                <div>
-                    <img class="test" src="images/klocka.jpg" alt="search">
+                <div id="start-clothes">
+
+                    <div>
+                        <img class="test" src="images/kavaj.jpg" alt="search">
+                    </div>
+                    <div>
+                        <img class="test" src="images/skor.jpg" alt="search">
+                    </div>
+                    <div>
+                        <img class="test" src="images/klocka.jpg" alt="search">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="ProductPage" style="background-color: black;">
+            <div id="ProductPage" v-if="typeOfPage === 'product'">
+                <div class="productpageContainer">
 
-            <h1 style="color: white;">Hello</h1>
+                    <h1>Hello</h1>
 
-        </div>
-       
-    </section>
 
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    
+
+    <script src="index.js"></script>
 </body>
+
 </html>
