@@ -1,13 +1,13 @@
-#headerID
+#page-header
 {
     display: flex;
     justify-content: space-between;
     margin: 1%;
     height: 5%;
-
     background-color: antiquewhite;
 }
 
+/*Meny är för Start och Produkt text och understryck*/
 #meny
 {
     display: flex;
