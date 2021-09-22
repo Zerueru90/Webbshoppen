@@ -1,7 +1,6 @@
 let holdData;
 var app = new Vue(
 {
-
     el: '#app',
     async created() { //radera??
           this.fetchData();
@@ -26,48 +25,17 @@ var app = new Vue(
         },
         fetchData: async function ()  //ändra namn
         {
-            await axios
+            return axios
             .get('products.json')
             .then(response => 
             {
-                this.testing = response.data.categories; 
-               
+                this.testing = response.data.categories;
             })
         },
     }
 
 })
 
-// var testcomponent = Vue.component('firstpageShow',
-// {
-//     props: ['brand'],
-//     data: function()
-//     {
-//         return {
-//             products: [],
-//             samson: this.shopItems()
-//         }
-//     },
-//     methods: 
-//     {
-//         shopItems: function()
-//         {
-//             axios
-//             .get('product.json')
-//             .then(response => 
-//             {
-//                 this.products = response.data.categories;
-//             })
-//         }
-       
-//     },
-//     template:'<div>'
-//     + '<div v-for="product in products"> v-bind:key="product.ID">'
-//     + '<img >{{product.Brand}}</img>'
-//     + '<img >{{product.Price}}</img>'
-//     + '<img >{{product.Img}}</img>'
-//     +'</div></div>'
-// })
 
 Vue.component('shopitems', {
     props: ['Brand'],
@@ -88,15 +56,20 @@ Vue.component('shopitems', {
             }
 
         },
-        template: '<div class=shopItems id="second">'
-        + '<div v-for="(val,key) in filteredShop"> '
-        + '<div v-for="val2 in val"> '
-        + '<div v-for="val3 in val2"> '
+        template: '<div class=shopItems style="width: 250px;">'
+        + '<div v-for="(val,key) in filteredShop" style="width: 250px;"> '
+        + '<div v-for="val2 in val" style="width: 250px;"> '
+        + '<div v-for="val3 in val2" style="width: 250px;" v-if="val3.firstpage === true"> ' //välj vilka som ska dyka upp
 
-        // + '<h2>{{val3.Price}}</h2>'
-        + '<img :src=val3.Img></img>'
         
+        + '<img :src=val3.Img style="height: 300px;"></img>'
+        + '<p>{{val3.Brand}}</p>'
+        + '<p>{{val3.Price}} sek</p>'
+        + '<p>{{val3.Description}}</p>'
+        + '<button>Köp</button>'
+
+
         + '</div></div></div></div>'
     })
 
-    var app = new Vue({ el: '#app' })
+//     var app = new Vue({ el: '#app' })    
