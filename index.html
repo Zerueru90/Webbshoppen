@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -81,6 +82,15 @@
                 <div id="StartPage" v-if="typeOfPage === 'start' || typeOfPage === ''">
 
                     <img class="s" src="images/wallpaper2.jpg">
+
+                    <div id="app" class="div-grid">
+
+                        <div id="order-grid">
+                            <shopitems></shopitems>
+                        </div>
+
+                        <!-- {{testing}} -->
+                    </div>
 
                     <!-- <img class="s" src="images/wallpaper2.jpg" alt="cart">
 
