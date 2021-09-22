@@ -4,11 +4,27 @@
       "jackets": [
         {
           "ID": "1",
-          "Brand": "Jacket",
+          "Brand": "Kavaj",
           "Price": 2000,
-          "Description": "Kajav för allt",
+          "Description": "Kavaj för allt",
           "Img": "images/kavaj.jpg",
           "firstpage": true
+        },
+        {
+          "ID": "4",
+          "Brand": "Jacka",
+          "Price": 2111,
+          "Description": "Jacka2 för allt",
+          "Img": "images/jacka2.jpg",
+          "firstpage": false
+        },
+        {
+          "ID": "5",
+          "Brand": "Jacka",
+          "Price": 2111,
+          "Description": "Jacka3 för allt",
+          "Img": "images/jacka3.jpg",
+          "firstpage": false
         }
       ]
     },
@@ -21,6 +37,22 @@
           "Description": "Klocka whatever",
           "Img": "images/klocka.jpg",
           "firstpage": true
+        },
+        {
+          "ID": "6",
+          "Brand": "Klocka",
+          "Price": 2522,
+          "Description": "Klocka2 whatever",
+          "Img": "images/klocka2.jpg",
+          "firstpage": false
+        },
+        {
+          "ID": "7",
+          "Brand": "Klocka",
+          "Price": 2522,
+          "Description": "Klocka3 whatever",
+          "Img": "images/klocka3.jpg",
+          "firstpage": false
         }
       ]
     },
@@ -32,7 +64,23 @@
             "Price": 2000,
             "Description": "Skor hej",
             "Img": "images/skor.jpg",
-            "firstpage": false
+            "firstpage": true
+        },
+        {
+          "ID": "8",
+          "Brand": "Skor",
+          "Price": 2444,
+          "Description": "Skor2 hej",
+          "Img": "images/skor2.jpg",
+          "firstpage": false
+        },
+        {
+          "ID": "9",
+          "Brand": "Skor",
+          "Price": 2333,
+          "Description": "Skor3 hej",
+          "Img": "images/skor3.jpg",
+          "firstpage": false
         }
       ]
     }
