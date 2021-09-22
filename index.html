@@ -29,15 +29,17 @@
 
             <ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
 
-                <li class="nav-about-us" role="presentation"><a role="menuitem" tabindex="-1">Hem</a href="#" v-on:click="showStart()"></li>
-                <li class="nav-about-us" role="presentation"><a role="menuitem" tabindex="-1">Produkter</a href="#" v-on:click="showProduct()"></li>
-                
+                <li class="nav-about-us" role="presentation"><a role="menuitem" tabindex="-1">Hem</a href="#"
+                        v-on:click="showStart()"></li>
+                <li class="nav-about-us" role="presentation"><a role="menuitem" tabindex="-1">Produkter</a href="#"
+                        v-on:click="showProduct()"></li>
+
 
                 <span class="socialheader">
-                        <img class="symbol" src="images/cart.png" alt="cart" v-on:click="showCart()" href="#">
-                        <img class="symbol" src="images/heart.png" alt="like">
-                        <img class="symbol" src="images/profile.JPG" alt="profile" v-on:click="showAdmin()" href="#">
-                        <img class="symbol" src="images/search.png" alt="search">
+                    <img class="symbol" src="images/cart.png" alt="cart" v-on:click="showCart()" href="#">
+                    <img class="symbol" src="images/heart.png" alt="like">
+                    <img class="symbol" src="images/profile.JPG" alt="profile" v-on:click="showAdmin()" href="#">
+                    <img class="symbol" src="images/search.png" alt="search">
                 </span>
             </ul>
         </div>
@@ -45,12 +47,15 @@
         <div class="site-wrapper">
 
             <nav class="main-nav overlay clearfix">
-                <a class="logo" href="index.html"> <h2>Whatever <em>Clothing</em></h2> </a>
+                <a class="logo" href="#">
+                    <h2>Whatever <em>Clothing</em></h2>
+                </a>
                 <ul id="menu">
-                    <li class="nav-home nav-current" role="presentation"><a href="#" v-on:click="showStart()">Hem</a></li>
+                    <li class="nav-home nav-current" role="presentation"><a href="#" v-on:click="showStart()">Hem</a>
+                    </li>
                     <li class="nav-article-example" role="presentation"><a href="#" v-on:click="showProduct()">Produkter</a></li>
                     <span class="socialheader" style="padding: 5%;">
-                        <img class="symbol" src="images/cart.png" ref="#" v-on:click="showCart()">
+                        <img class="symbol" src="images/cart.png" href="#" v-on:click="showCart()">
                         <img class="symbol" src="images/heart.png" alt="like">
                         <img class="symbol" src="images/profile.JPG" href="#" v-on:click="showAdmin()">
                         <img class="symbol" src="images/search.png" alt="search">
@@ -59,66 +64,130 @@
             </nav>
 
             <header id="page-header">
+
                 
-
-
-                <!-- <header class="main-header " style="background-image: url(assets/img/intro.jpg)"> -->
-
-                    <!-- <ul id="meny">
-                        <a id="startPlace" v-on:click="showStart()">Start</a>
-                        <a id="productPlace" v-on:click="showProduct()">Produkter</a>
-                    </ul>
-
-                    <div id="head-icons">
-                        <img class="icon" src="images/cart.png" alt="cart" v-on:click="showCart()">
-                        <img class="icon" src="images/heart.png" alt="like">
-                        <img class="icon" src="images/profile.JPG" alt="profile" v-on:click="showAdmin()">
-                        <img class="icon" src="images/search.png" alt="search">
-                    </div> -->
             </header>
 
             <section id="sectionSide">
 
                 <div id="StartPage" v-if="typeOfPage === 'start' || typeOfPage === ''">
 
-                    <img class="s" src="images/wallpaper2.jpg">
+                    <img id="s" src="images/wallpaper2.jpg">
 
-                    <div id="app" class="div-grid">
+                    <div id="div-grid">
 
-                        <div id="order-grid">
-                            <shopitems></shopitems>
-                        </div>
+                        <figure id="order-grid" style="width: 250px;">
+                            <shopitems id="testing"></shopitems>
+                        </figure>
 
-                        <!-- {{testing}} -->
                     </div>
-
-                    <!-- <img class="s" src="images/wallpaper2.jpg" alt="cart">
-
-                <div id="start-clothes">
-
-                    <div>
-                        <img class="test" src="images/kavaj.jpg" alt="search">
-                    </div>
-                    <div>
-                        <img class="test" src="images/skor.jpg" alt="search">
-                    </div>
-                    <div>
-                        <img class="test" src="images/klocka.jpg" alt="search">
-                    </div>
-                </div> -->
                 </div>
 
                 <div id="ProductPage" v-if="typeOfPage === 'product'">
-                    <div class="productpageContainer">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <h1 style="color: red;">Product</h1>
+                    <div class="products">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="filters">
 
-
-                    </div>
+                                <ul id="product-ul-rad">
+                                    <li class="active" data-filter="*">Alla produkter</li>
+                                    <li data-filter=".des">Jacka</li>
+                                    <li data-filter=".dev">Klocka</li>
+                                    <li data-filter=".gra">Skor</li>
+                                </ul>
+                                
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="filters-content">
+                                  <div class="row grid">
+                                      <div class="col-lg-4 col-md-4 all des">
+                                        <div class="product-item">
+                                          <a href="#"><img src="images/kavaj.jpg" style="height: 300px;" alt=""></a>
+                                          <div class="down-content">
+                                            <a href="#"><h4>Tittle goes here</h4></a>
+                                            <h6>$18.25</h6>
+                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                            <span>Reviews (12)</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4 col-md-4 all dev">
+                                        <div class="product-item">
+                                          <a href="#"><img src="images/jacka2.jpg" style="height: 300px;" alt=""></a>
+                                          <div class="down-content">
+                                            <a href="#"><h4>Tittle goes here</h4></a>
+                                            <h6>$16.75</h6>
+                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                            
+                                            <span>Reviews (24)</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4 col-md-4 all gra">
+                                        <div class="product-item">
+                                          <a href="#"><img src="images/jacka3.jpg" style="height: 300px;" alt=""></a>
+                                          <div class="down-content">
+                                            <a href="#"><h4>Tittle goes here</h4></a>
+                                            <h6>$32.50</h6>
+                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                            
+                                            <span>Reviews (36)</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4 col-md-4 all gra">
+                                        <div class="product-item">
+                                          <a href="#"><img src="images/skor2.jpg" style="height: 300px;" alt=""></a>
+                                          <div class="down-content">
+                                            <a href="#"><h4>Tittle goes here</h4></a>
+                                            <h6>$24.60</h6>
+                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                            
+                                            <span>Reviews (48)</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4 col-md-4 all dev">
+                                        <div class="product-item">
+                                          <a href="#"><img src="images/skor3.jpg" style="height: 300px;" alt=""></a>
+                                          <div class="down-content">
+                                            <a href="#"><h4>Tittle goes here</h4></a>
+                                            <h6>$18.75</h6>
+                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                            
+                                            <span>Reviews (60)</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4 col-md-4 all des">
+                                        <div class="product-item">
+                                          <a href="#"><img src="images/klocka2.jpg" style="height: 300px;" alt=""></a>
+                                          <div class="down-content">
+                                            <a href="#"><h4>Tittle goes here</h4></a>
+                                            <h6>$12.50</h6>
+                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                           
+                                            <span>Reviews (72)</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <!-- <div class="col-md-12">
+                              <ul class="pages">
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                              </ul>
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
                 </div>
 
                 <div v-if="typeOfPage === 'cart'">
