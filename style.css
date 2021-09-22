@@ -154,7 +154,7 @@ img.symbol {
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
 	display:inline-block;
-	float:right;
+	/* float:right; */
 	padding:0;
 	opacity:1;
 	text-align:center;
@@ -273,7 +273,7 @@ img.symbol {
 .slicknav_btn {
 	position:relative;
 	display:block;
-	vertical-align:middle;
+	/* vertical-align:middle; */
 	float:right;
 	padding:0.438em 0.625em 0.438em 0.625em;
 	line-height:1.125em;
@@ -465,6 +465,31 @@ body, html {
 }
 
 /*------Header Bild första sidan-------*/
+
+.div-grid
+{
+  
+    display: grid;
+    grid-template-columns: 50% 50% 50%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "#first #second #third";
+
+    margin-top: 3%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 3%;
+    grid-gap: 15px;
+}
+
+#order-grid {
+    
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
 
 /*Nedre gammalt*/
 
