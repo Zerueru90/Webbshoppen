@@ -1,4 +1,474 @@
-#page-header
+/*------------Översta nav så den sitter fast*--------------------*/
+.main-nav
+{
+	position:relative;
+	padding:5px 5%;
+	margin:0 0 0px 0;
+}
+.main-nav a {
+	text-decoration:none;
+	font-size:0.9em;
+	letter-spacing:0.3px;
+	font-weight:400;
+	color:#ccc;
+	font-family:Playfair Display;
+}
+.main-nav.overlay {
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	height:54px;
+	border:none;
+	background:linear-gradient(to bottom,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
+	background:rgba(0,0,0,0.8);
+	z-index:9;
+}
+.main-nav .nav-current a {
+	color:#fff;
+}
+.main-nav a:hover {
+	color: #fff;
+}
+.main-nav ul {
+	list-style:none;
+	margin:5px 0;
+	text-align:center;
+	padding-left:0;
+}
+.main-nav ul li {
+	display:inline-block;
+}
+.main-nav ul li a {
+	padding:0 10px;
+}
+/*------------Översta nav så den sitter fast*--------------------*/
+
+/*--------Logo-----------*/
+.logo {
+	float: 	left;
+	margin-top: -6px;
+}
+.logo h2 {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: 700;
+}
+.logo h2 em {
+	font-style: normal;
+	color: #f33f3f;
+}
+
+/* Appears in the top left corner of your home page */
+.logo {
+	display:block;
+	float:left;
+	background:none !important;
+	/* Makes sure there is never a background */
+	border:none !important;
+	/* Makes sure there is never a border */
+}
+.logo img {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	display:block;
+	height:auto;
+	padding:0;
+	width:auto;
+	opacity:1;
+	transition:all 0.4s;
+}
+.logo img:hover {
+	opacity:1.0;
+	transition:all 0.4s;
+}
+
+/*--------Logo-----------*/
+
+ol, ul {
+    padding-left: 3rem; /*radera kanske*/
+}
+p, ul, ol, dl {
+    font-feature-settings: "liga", "onum", "kern";
+    text-rendering: geometricprecision;
+    margin: 0px 0px 1.75em;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li{
+    font-size: xx-large;
+}
+
+/* Clears shit */
+.clearfix:before,.clearfix:after {
+	content:" ";
+	display:table;
+}
+.clearfix:after {
+	clear:both;
+}
+.clearfix {
+	zoom: 1;
+}
+
+/* Hides shit */
+.hidden {
+	text-indent:-9999px;
+	visibility:hidden;
+	display: none;
+}
+
+/*-----logo bilderna i nav-------*/
+img.symbol:before {
+	content:attr(title);
+	margin-right:0.3em;
+	font-size:130%;
+}
+img.symbol {
+	background:white;
+	padding:7px 5px 3px 5px;
+	color:white;
+	text-decoration:none;
+    height: 3vh;
+    width: 5.3vh;
+    float: right;
+}
+/*-----logo bilderna i nav-------*/
+
+
+/*----------menu----------*/
+
+
+.menu-button {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	display:inline-block;
+	float:right;
+	padding:0;
+	opacity:1;
+	text-align:center;
+	font-size:12px;
+	text-transform:uppercase;
+	white-space:nowrap;
+	transition:all 0.5s ease;
+}
+.menu-button:before {
+	font-size:24px;
+	font-weight:300;
+	position:relative;
+	top:14px;
+}
+.menu-button:hover {
+	background:#fff;
+}
+.menu-button:focus {
+	outline: 0;
+}
+/* When the navigation is closed */
+.nav-closed .menu-button {
+	color:#333;
+	border-color:rgba(255,255,255,0.6);
+}
+.nav-closed .menu-button:hover {
+	color: #222;
+}
+/* When the navigation is closed and there is no cover image */
+.nav-closed .no-cover .menu-button {
+	border-color:#BFC8CD;
+	color:#9EABB3;
+}
+.nav-closed .no-cover .menu-button:hover {
+	border-color:#555;
+	color: #555;
+}
+/* When the navigation is opened */
+.nav-opened .menu-button {
+	padding:0 12px;
+	background:#111;
+	border-color:#111;
+	color:#fff;
+	-webkit-transform:translate3D(94px,0,0);
+	-ms-transform:translate3D(94px,0,0);
+	transform:translate3D(94px,0,0);
+	transition:all 0.3s ease;
+}
+.nav-opened .menu-button .word {
+	opacity:0;
+	transition: all 0.3s ease;
+}
+
+
+@media only screen and (max-width:500px)
+{
+
+	.menu-button {
+		padding:0 5px;
+		border-radius:0;
+		border-width:0;
+		color:#2e2e2e;
+		background:transparent;
+	}
+	.menu-button:hover {
+		color:#2e2e2e;
+		border-color:transparent;
+		background:none;
+	}
+	body.nav-opened .menu-button {
+		background:none;
+		border:transparent;
+	}
+    .no-cover .main-nav.overlay .menu-button {
+		border:none;
+	}
+	.main-nav.overlay .menu-button {
+		border-color:transparent;
+	}
+    .logo {
+		padding:0px;
+	}
+}
+
+.slicknav_menu {
+	display: none;
+}
+
+@media screen and (max-width:900px) {
+	/* #menu is the original menu */
+	#menu {
+			display:none;
+	}
+	.site-wrapper {
+		margin-top:0;
+	}
+	.slicknav_menu {
+			display:block;
+	}
+	.main-nav.overlay {
+		position:relative;
+		height:3px;
+	}
+	span.socialheader {
+		float:none;
+		margin-bottom:50px;
+		display: block;
+	}
+    .logo img {
+		padding:0 0 0 10px;
+		margin-top:-54px;
+	}
+}
+
+/*slicknav*/
+.slicknav_btn {
+	position:relative;
+	display:block;
+	vertical-align:middle;
+	float:right;
+	padding:0.438em 0.625em 0.438em 0.625em;
+	line-height:1.125em;
+	cursor:pointer;
+}
+.slicknav_btn .slicknav_icon-bar+.slicknav_icon-bar {
+	margin-top:0.188em;
+}
+.slicknav_menu {
+	*zoom:1;
+}
+.slicknav_menu .slicknav_menutxt {
+	display:block;
+	line-height:1.188em;
+	float:left;
+}
+.slicknav_menu .slicknav_icon {
+	float:left;
+	width:1.125em;
+	height:0.875em;
+	margin:0.188em 0 0 0.438em;
+}
+.slicknav_menu .slicknav_icon:before {
+	background:transparent;
+	width:1.125em;
+	height:0.875em;
+	display:block;
+	content:"";
+	position:absolute;
+}
+.slicknav_menu .slicknav_no-text {
+	margin:0;
+}
+.slicknav_menu .slicknav_icon-bar {
+	display:block;
+	width:1.125em;
+	height:0.125em;
+	-webkit-border-radius:1px;
+	-moz-border-radius:1px;
+	border-radius:1px;
+	-webkit-box-shadow:0 1px 0 rgba(0,0,0,0.25);
+	-moz-box-shadow:0 1px 0 rgba(0,0,0,0.25);
+	box-shadow:0 1px 0 rgba(0,0,0,0.25);
+}
+.slicknav_menu:before {
+	content:" ";
+	display:table;
+}
+.slicknav_menu:after {
+	content:" ";
+	display:table;
+	clear:both;
+}
+.slicknav_nav {
+	clear:both;
+}
+.slicknav_nav ul {
+	display:block;
+}
+.slicknav_nav li {
+	display:block;
+}
+.slicknav_nav .slicknav_arrow {
+	font-size:0.8em;
+	margin:0 0 0 0.4em;
+}
+.slicknav_nav .slicknav_item {
+	cursor:pointer;
+}
+.slicknav_nav .slicknav_item a {
+	display:inline;
+}
+.slicknav_nav .slicknav_row {
+	display:block;
+}
+.slicknav_nav a {
+	display:inline-block;
+}
+.slicknav_nav .slicknav_parent-link a {
+	display:inline;
+}
+.slicknav_brand {
+	float:left;
+}
+.slicknav_menu {
+	font-size:16px;
+	box-sizing:border-box;
+	background:#313232;
+	padding:5px;
+	right:0;
+	z-index:99;
+}
+.slicknav_menu * {
+	box-sizing:border-box;
+}
+.slicknav_menu .slicknav_menutxt {
+	color:#fff;
+	font-weight:bold;
+	text-shadow:0 1px 3px #000;
+}
+.slicknav_menu .slicknav_icon-bar {
+	background-color:#fff;
+}
+.slicknav_btn {
+	margin:5px 5px 6px;
+	text-decoration:none;
+	text-shadow:0 1px 1px rgba(255,255,255,0.75);
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	background-color:#222;
+}
+.slicknav_nav {
+	color:#fff;
+	margin:0;
+	padding:0;
+	font-size:0.875em;
+	list-style:none;
+	overflow:hidden;
+}
+.slicknav_nav ul {
+	list-style:none;
+	overflow:hidden;
+	padding:0;
+	margin:0 0 0 20px;
+}
+.slicknav_nav .slicknav_row {
+	padding:5px 10px;
+	margin:2px 5px;
+}
+.slicknav_nav .slicknav_row:hover {
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border-radius:6px;
+	background:#ccc;
+	color:#fff;
+}
+.slicknav_nav a {
+	padding:5px 10px;
+	margin:2px 5px;
+	text-decoration:none;
+	color:#fff;
+}
+.slicknav_nav a:hover {
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border-radius:6px;
+	background:#ccc;
+	color:#222;
+}
+.slicknav_nav .slicknav_txtnode {
+	margin-left:15px;
+}
+.slicknav_nav .slicknav_item a {
+	padding:0;
+	margin:0;
+}
+.slicknav_nav .slicknav_parent-link a {
+	padding:0;
+	margin:0;
+}
+.slicknav_brand {
+	color:#fff;
+	font-size:18px;
+	line-height:30px;
+	padding:7px 12px;
+	height: 44px;
+}
+
+/*----------menu----------*/
+
+/*------Header Bild första sidan-------*/
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+#StartPage {
+    position: relative;
+}
+
+#StartPage img {
+    width: 100%;
+    height: auto;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*------Header Bild första sidan-------*/
+
+/*Nedre gammalt*/
+
+/* #page-header
 {
     display: flex;
     justify-content: space-between;
@@ -7,7 +477,6 @@
     background-color: antiquewhite;
 }
 
-/*Meny är för Start och Produkt text och understryck*/
 #meny
 {
     display: flex;
@@ -62,7 +531,6 @@
     left: 0;
     height: 300%;
     width: 100%;
-    /* filter: blur(px) */
 }
 
 #start-clothes
@@ -94,4 +562,4 @@
 { 
     height: 5000%;
     width: 100%;
-}
+} */
