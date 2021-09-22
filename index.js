@@ -15,8 +15,14 @@ var app = new Vue(
 
             },
             showProduct: function () {
-                this.typeOfPage = "product"
+                this.typeOfPage = "product";
             },
+            showCart: function () {
+                this.typeOfPage = "cart";
+            },
+            showAdmin: function () {
+                this.typeOfPage = "adminpage";
+            }
             // fetchData: async function () {
             //     await axios.get('products.json')
             //         .then(response => {
