@@ -1,0 +1,40 @@
+{
+  "categories": [
+    {
+      "jackets": [
+        {
+          "ID": "1",
+          "Brand": "Jacket",
+          "Price": 2000,
+          "Description": "Kajav för allt",
+          "Img": "images/kavaj.jpg",
+          "firstpage": true
+        }
+      ]
+    },
+    {
+      "watches": [
+        {
+          "ID": "2",
+          "Brand": "Klocka",
+          "Price": 2500,
+          "Description": "Klocka whatever",
+          "Img": "images/klocka.jpg",
+          "firstpage": true
+        }
+      ]
+    },
+    {
+      "shoes": [
+        {
+          "ID": "3",
+            "Brand": "Skor",
+            "Price": 2000,
+            "Description": "Skor hej",
+            "Img": "images/skor.jpg",
+            "firstpage": false
+        }
+      ]
+    }
+  ]
+}
