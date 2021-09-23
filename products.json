@@ -1,97 +1,85 @@
 {
   "categories": [
     {
-      "jackets": [
-        {
-          "ID": "1",
-          "Brand": "Jacka",
-          "Code": 1111,
-          "Price": 2000,
-          "Description": "Kavaj för allt",
-          "Img": "images/kavaj.jpg",
-          "firstpage": true
-        },
-        {
-          "ID": "4",
-          "Brand": "Jacka",
-          "Code": 1111,
-          "Price": 2111,
-          "Description": "Jacka2 för allt",
-          "Img": "images/jacka2.jpg",
-          "firstpage": false
-        },
-        {
-          "ID": "5",
-          "Brand": "Jacka",
-          "Code": 1111,
-          "Price": 2111,
-          "Description": "Jacka3 för allt",
-          "Img": "images/jacka3.jpg",
-          "firstpage": false
-        }
-      ]
+      "ID": "1",
+      "Brand": "HM",
+      "Code": 1111,
+      "Price": 2000,
+      "Description": "Kavaj för allt",
+      "Img": "images/kavaj.jpg",
+      "firstpage": true
     },
     {
-      "watches": [
-        {
-          "ID": "2",
-          "Brand": "Klocka",
-          "Code": 2222,
-          "Price": 2500,
-          "Description": "Klocka whatever",
-          "Img": "images/klocka.jpg",
-          "firstpage": true
-        },
-        {
-          "ID": "6",
-          "Brand": "Klocka",
-          "Code": 2222,
-          "Price": 2522,
-          "Description": "Klocka2 whatever",
-          "Img": "images/klocka2.jpg",
-          "firstpage": false
-        },
-        {
-          "ID": "7",
-          "Brand": "Klocka",
-          "Code": 2222,
-          "Price": 2522,
-          "Description": "Klocka3 whatever",
-          "Img": "images/klocka3.jpg",
-          "firstpage": false
-        }
-      ]
+      "ID": "4",
+      "Brand": "North Face",
+      "Code": 1111,
+      "Price": 2111,
+      "Description": "1996 Retro",
+      "Img": "images/jacka2.jpg",
+      "firstpage": false
     },
     {
-      "shoes": [
-        {
-          "ID": "3",
-            "Brand": "Skor",
-            "Code": 3333,
-            "Price": 2000,
-            "Description": "Skor hej",
-            "Img": "images/skor.jpg",
-            "firstpage": true
-        },
-        {
-          "ID": "8",
-          "Brand": "Skor",
-          "Code": 3333,
-          "Price": 2444,
-          "Description": "Skor2 hej",
-          "Img": "images/skor2.jpg",
-          "firstpage": false
-        },
-        {
-          "ID": "9",
-          "Brand": "Skor",
-          "Code": 3333,
-          "Price": 2333,
-          "Description": "Skor3 hej",
-          "Img": "images/skor3.jpg",
-          "firstpage": false
-        }
-      ]
+      "ID": "5",
+      "Brand": "Sweet SKTBS",
+      "Code": 1111,
+      "Price": 2111,
+      "Description": "Sweet Puff .",
+      "Img": "images/jacka3.jpg",
+      "firstpage": false
+    },
+    {
+      "ID": "2",
+      "Brand": "Klocka",
+      "Code": 2222,
+      "Price": 2500,
+      "Description": "Klocka whatever",
+      "Img": "images/klocka.jpg",
+      "firstpage": true
+    },
+    {
+      "ID": "6",
+      "Brand": "Klocka",
+      "Code": 2222,
+      "Price": 2522,
+      "Description": "Klocka2 whatever",
+      "Img": "images/klocka2.jpg",
+      "firstpage": false
+    },
+    {
+      "ID": "7",
+      "Brand": "Klocka",
+      "Code": 2222,
+      "Price": 2522,
+      "Description": "Klocka3 whatever",
+      "Img": "images/klocka3.jpg",
+      "firstpage": false
+    },
+    {
+      "ID": "3",
+        "Brand": "Skor",
+        "Code": 3333,
+        "Price": 2000,
+        "Description": "Skor hej",
+        "Img": "images/skor.jpg",
+        "firstpage": true
+    },
+    {
+      "ID": "8",
+      "Brand": "Skor",
+      "Code": 3333,
+      "Price": 2444,
+      "Description": "Skor2 hej",
+      "Img": "images/skor2.jpg",
+      "firstpage": false
+    },
+    {
+      "ID": "9",
+      "Brand": "Skor",
+      "Code": 3333,
+      "Price": 2333,
+      "Description": "Skor3 hej",
+      "Img": "images/skor3.jpg",
+      "firstpage": false
     }
   ]
 }
