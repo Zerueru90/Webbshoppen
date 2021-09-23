@@ -74,12 +74,12 @@
 
                     <!-- <img id="s" src="images/wallpaper2.jpg"> -->
 
-                    <div class="products">'
-                      <div class="container">'
-                        <div class="row">'
-                          <div class="col-md-12">'
-                            <div class="filters-content">'
-                              <div class="row grid">'
+                    <div class="products">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="filters-content">
+                              <div class="row grid">
                                 <shopitems id="testing"></shopitems>
                               </div>
                             </div>
@@ -103,86 +103,37 @@
                           <div class="row">
                             <div class="col-md-12">
                               <div class="filters">
-
+                                
                                 <ul id="product-ul-rad">
-                                    <li class="active" onclick="filtrera()">Alla produkter</li>
-                                    <li>Jacka</li>
-                                    <li>Klocka</li>
-                                    <li>Skor</li>
+                                    <li class="active"><input type="checkbox"  v-model="allaprodukterClicked">Alla produkter</li>
+                                    <li id="testJacket"><input type="checkbox"  v-model="jacketClicked">Jacka</li>
+                                    <li><input type="checkbox"  v-model="watchClicked">Klocka</li>
+                                    <li><input type="checkbox"  v-model="shoeClicked">Skor</li>
                                 </ul>
 
                               </div>
                             </div>
                             <div class="col-md-12">
                               <div class="filters-content">
-                                  <div class="row grid">
-                                      <div class="col-lg-4 col-md-4 all des">
-                                        <div class="product-item">
-                                          <!-- <filtreraJacka></filtreraJacka> -->
-                                          <a href="#" class="text-in-productbox"><img src="images/kavaj.jpg" alt=""></a>
-                                          <div class="down-content">
-                                            <a href="#"><h4>Tittle goes here</h4></a>
-                                            <h6>$18.25</h6>
-                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                                            
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-4 col-md-4 all dev">
-                                        <div class="product-item">
-                                          <a href="#" class="text-in-productbox"><img src="images/jacka2.jpg" alt=""></a>
-                                          <div class="down-content">
-                                            <a href="#"><h4>Tittle goes here</h4></a>
-                                            <h6>$16.75</h6>
-                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                                            
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-4 col-md-4 all gra">
-                                        <div class="product-item">
-                                          <a href="#" class="text-in-productbox"><img src="images/jacka3.jpg" alt=""></a>
-                                          <div class="down-content">
-                                            <a href="#"><h4>Tittle goes here</h4></a>
-                                            <h6>$32.50</h6>
-                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                                            
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-4 col-md-4 all gra">
-                                        <div class="product-item">
-                                          <a href="#" class="text-in-productbox"><img src="images/skor2.jpg" alt=""></a>
-                                          <div class="down-content">
-                                            <a href="#"><h4>Tittle goes here</h4></a>
-                                            <h6>$24.60</h6>
-                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                                            
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-4 col-md-4 all dev">
-                                        <div class="product-item">
-                                          <a href="#" class="text-in-productbox"><img src="images/skor3.jpg" alt=""></a>
-                                          <div class="down-content">
-                                            <a href="#"><h4>Tittle goes here</h4></a>
-                                            <h6>$18.75</h6>
-                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                                            
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-4 col-md-4 all des">
-                                        <div class="product-item">
-                                          <a href="#" class="text-in-productbox"><img src="images/klocka2.jpg" alt=""></a>
-                                          <div class="down-content">
-                                            <a href="#"><h4>Tittle goes here</h4></a>
-                                            <h6>$12.50</h6>
-                                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                                           
-                                          </div>
-                                        </div>
-                                      </div>
+                                <div class="row grid"  v-if="allaprodukterClicked === true" >
+                                    
+                                  <allaprodukter></allaprodukter>
+
+                                </div>
+                                  <div class="row grid"  v-if="jacketClicked === true" >
+                                    
+                                    <jacka></jacka>
+
+                                  </div>
+                                  <div class="row grid"  v-if="watchClicked === true" >
+                                    
+                                    <klocka></klocka>
+
+                                  </div>
+                                  <div class="row grid"  v-if="shoeClicked === true" >
+                                    
+                                    <skor></skor>
+
                                   </div>
                               </div>
                             </div>
@@ -200,21 +151,113 @@
                       </div>
                 </div>
 
-                <div v-if="typeOfPage === 'cart'">
-                    <div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <h1 style="color: red;">Cart</h1>
+                <div v-if="typeOfPage === 'cart'" class="cart">
 
+                  
+                  <varukorg></varukorg>
+
+                  <!-- <div class="container-cart">
+                    <div class="payment_details">
+                      <h1 class="h1-cart">Payment Information</h1>
+                      <div class="details_card">
+                        <div class="name_address">
+                          <div class="first_lastName">
+                            <input class="input-cart" type="text" placeholder="First Name" />
+                            <input class="input-cart" type="text" placeholder="Last Name" />
+                          </div>
+                          <div class="address">
+                            <input class="input-cart" type="text" onkeyup="change()" id="put" placeholder="Address" />
+                            <input class="input-cart" type="number" placeholder="Pincode" />
+                            <input class="input-cart" type="text" placeholder="Country" />
+                          </div>
+                        </div>
+                        <h1 class="h1-cart">Shipping Details</h1>
+                        <div class="shipping_card">
+                          <div class="new_card">
+                            <h4>Same as personal</h4>
+                            <p id="output">Bharat House Bombay Samachar Road</p>
+                            <p>400001</p>
+                          </div>
+                          <div class="add_savedcard">
+                            <h4>Saved Address</h4>
+                            <p>Lokhandwala Complex, Andheri (west)</p>
+                            <p>400053</p>
+                          </div>
+                        </div>
+                        <div class="proced_payment">
+                          <a href="">Procced to payment</a>
+                        </div>
+                      </div>
                     </div>
+                    
+                    <div class="order_summary">
+                      <h1 class="h1-cart">Order Summary</h1>
+                      <div class="summary_card">
+                        <div class="card_item">
+                          <div class="product_img">
+                            <img src=https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=643&q=80" alt="" />
+                          </div>
+                          <div class="product_info">
+                            <h1 class="h1-cart">Nike Shoes</h1>
+                            <p>Lorem Ipsum is simply dummy text.</p>
+                            <div class="close-btn">
+                              <i class="fa fa-close"></i>
+                            </div>
+                            <div class="product_rate_info">
+                              <h1 class="h1-cart">$ 200</h1>
+                              <span class="pqt-minus">-</span>
+                              <span class="pqt">1</span>
+                              <span class="pqt-plus">+</span>
+                            </div>
+                          </div>
+                        </div>
 
+                        <div class="card_item">
+                          <div class="product_img">
+                            <img src="https://images.unsplash.com/photo-1543512214-318c7553f230?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="" />
+                          </div>
+                          <div class="product_info">
+                            <h1 class="h1-cart">Amazon Prime</h1>
+                            <p>Lorem Ipsum is simply dummy text.</p>
+                            <div class="close-btn">
+                              <i class="fa fa-close"></i>
+                            </div>
+                            <div class="product_rate_info">
+                              <h1 class="h1-cart">$ 160</h1>
+                              <span class="pqt-minus">-</span>
+                              <span class="pqt">1</span>
+                              <span class="pqt-plus">+</span>
+                            </div>
+                          </div>
+                        </div>
+                        <hr />
+                        <div class="order_price">
+                          <p>Order summary</p>
+                          <h4>$400</h4>
+                        </div>
+                        <div class="order_service">
+                          <p>Additional Service</p>
+                          <h4>$10</h4>
+                        </div>
+                        <div class="order_total">
+                          <p>Total Amount</p>
+                          <h4>$370</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+
+
+                  
 
                 </div>
 
-                <div v-if="typeOfPage === 'adminpage'">
+
+
+
+
+
+                <div v-if="typeOfPage === 'adminpage'" >
                     <div>
                         <br>
                         <br>
