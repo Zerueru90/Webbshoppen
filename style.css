@@ -467,7 +467,7 @@ body, html {
 
 /*------Header Bild första sidan-------*/
 
-.div-grid
+/* .div-grid
 {
 	display: grid;
 	grid-template-columns: repeat(3, 7fr);
@@ -484,10 +484,45 @@ body, html {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-}
+} */
 
 
 /*--PRODUCT PAGE--*/
+
+@media (min-width: 1200px)
+{
+	.container {
+		max-width: 1140px;
+	}
+}
+
+/* @media (min-width: 992px)
+{
+	.container {
+		max-width: 960px;
+	}
+}
+
+@media (min-width: 768px)
+{
+	.container {
+		max-width: 720px;
+	}
+}
+
+@media (min-width: 576px)
+{
+	.container {
+		max-width: 540px;
+	}
+} */
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .products {
 	margin-top: 100px;
@@ -545,9 +580,9 @@ body, html {
 	color: #fff;
 }
 
-.col-md-12
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto 
 {
-	position: relative;
+    position: relative;
     width: 100%;
     min-height: 1px;
     padding-right: 15px;
@@ -559,8 +594,18 @@ body, html {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-	margin-right: 15px;
-    margin-left: 100px;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+element.style {
+    position: absolute;
+    left: 0%;
+    top: 0px;
 }
 
 #product-ul-rad
@@ -574,7 +619,91 @@ body, html {
     padding-inline-start: 40px;
 }
 
+@media (min-width: 768px)
+{
+	.col-md-12 {
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
 
+
+@media (min-width: 992px)
+{.col-lg-4 
+	{
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+}
+
+@media (min-width: 768px){
+	.col-md-4 {
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+	
+}
+
+/*PRODUCT SIDAN lådorna*/
+.product-item {
+    border: 1px solid #eee;
+    margin-bottom: 30px;
+}
+
+.product-item img {
+    width: 100%;
+    overflow: hidden;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.product-item .down-content {
+    padding: 30px;
+    position: relative;
+}
+
+.text-in-productbox {
+    text-decoration: none!important;
+}
+/*Titel*/
+.product-item .down-content h4 {
+    font-size: 17px;
+    color: #1a6692;
+    margin-bottom: 20px;
+}
+/*Cash*/
+.product-item .down-content h6 {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 18px;
+    color: #121212;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+} */
+
+/*PRODUCT SIDAN lådorna*/
 
 
 
