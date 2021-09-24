@@ -37,9 +37,7 @@
 
                 <span class="socialheader">
                     <img class="symbol" src="images/cart.png" alt="cart" v-on:click="showCart()" href="#">
-                    <img class="symbol" src="images/heart.png" alt="like">
                     <img class="symbol" src="images/profile.JPG" alt="profile" v-on:click="showAdmin()" href="#">
-                    <img class="symbol" src="images/search.png" alt="search">
                 </span>
             </ul>
         </div>
@@ -56,9 +54,7 @@
                     <li class="nav-article-example" role="presentation"><a href="#" v-on:click="showProduct()">Produkter</a></li>
                     <span class="socialheader" style="padding: 5%;">
                         <img class="symbol" src="images/cart.png" href="#" v-on:click="showCart()">
-                        <img class="symbol" src="images/heart.png" alt="like">
                         <img class="symbol" src="images/profile.JPG" href="#" v-on:click="showAdmin()">
-                        <img class="symbol" src="images/search.png" alt="search">
                     </span>
                 </ul>
             </nav>
@@ -68,7 +64,8 @@
                 
             </header>
 
-                
+          <main v-if="!loading">
+            
             <div id="StartPage" v-if="typeOfPage === 'start' || typeOfPage === ''">
               <homepage></homepage>
             </div>
@@ -131,6 +128,8 @@
 
 
             </section>
+          
+          </main>
 
         </div>
     </div>
