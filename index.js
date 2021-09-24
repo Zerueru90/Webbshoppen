@@ -1,24 +1,23 @@
 
 let cart = [];
-let GlobalArray = [];
+let totalLeverans = 0;
 
-
+function countAll(){
+    let moms = app.Sum * 0.25;
+    app.showmoms = moms;
+    app.totalcartKostnad = totalLeverans + app.Sum;
+}
 /*VARUKORG */
 
 Vue.component('varukorg',{
-    created: function () {
-        this.total = app.Sum;
-        console.log("payment created. total = " + this.total)
-        this.setVat();
-        
-    },
     data: function(){
         return {
             itemlist: cart,
             leverarnskostnad: "",
             moms: this.setVat(),
             totalKostnad: 0,
-            AmazonChecked: 0
+            AmazonChecked: 0,
+            seen: ""
             
         }
     },
@@ -26,17 +25,21 @@ Vue.component('varukorg',{
     {
        adding:function(ID){
 
-        //Adding Stock In Order
-        //Summan ska addera
+        app.LiveArray.forEach(returnStock => 
+            {
+                if (returnStock.ID === ID) 
+                {
+                    if (returnStock.Stock !== 0) 
+                    {
+                        //Denna minskar Stock siffarn
+                        ReduceStockInJson(app.LiveArray, ID)
 
-        //Denna minskar Stock siffarn
-        ReduceStockInJson(app.LiveArray, ID)
-
-        
-        //app.cartArray.push(app.LiveArray.find(item => item.ID === ID).Price)
-        let nowPrice = app.LiveArray.find(item => item.ID === ID).Price;
-        CountSumv2(nowPrice);
-
+                        //app.cartArray.push(app.LiveArray.find(item => item.ID === ID).Price)
+                        let nowPrice = app.LiveArray.find(item => item.ID === ID).Price;
+                        CountSumv2(nowPrice);
+                    }
+                }
+            })
        },
        remove:function(ID)
        {
@@ -89,24 +92,27 @@ Vue.component('varukorg',{
             if (frakt === "Amazon") 
             {
                 this.AmazonChecked = 200;
+                totalLeverans = 200;
             }
             else if (frakt === "Fedex")
             {
                 this.AmazonChecked = 100;
+                totalLeverans = 100;
             }
+            countAll()
        },
        TotalKostnad: function(){
            this.totalKostnad = app.Sum + this.AmazonChecked;
        },
        setVat: function () {
-        this.vat = (this.total * 0.25).toFixed(2);
+        this.vat = (this.total * 0.25);
         console.log("Vat" + "  " + this.vat);
-        },
+        }
             
     },
     template: 
     '<div class="container-cart">'
-        + '<div class="payment_details">'
+        + '<div class="payment_details" v-if="seen">'
             + '<h1 class="h1-cart">Betalningsinformation</h1>'
             + '<div class="details_card">'
 
@@ -152,10 +158,10 @@ Vue.component('varukorg',{
                 +'<div class="totalorder">'
                 
                 + '<ul class="order-ul">'
-                + '<li class="li-order">Order: {{app.Sum.toFixed(2)}}</li>'
-                + '<li class="li-order">Leverans:{{AmazonChecked}} </li>'
-                + '<li class="li-order">Moms: {{this.vat}}</li>'
-                + '<li class="li-order">Totala kostnaden: {{total + AmazonChecked.toFixed(2)}}</li>'
+                + '<li class="li-order">Order: {{app.Sum}} sek</li>'
+                + '<li class="li-order">Leverans: {{AmazonChecked}} sek</li>'
+                + '<li class="li-order">Moms: {{app.showmoms}} sek</li>'
+                + '<li class="li-order">Totala kostnaden: {{app.totalcartKostnad}} sek</li>'
                 + '</ul>'
 
                 +'</div>'
@@ -206,20 +212,11 @@ Vue.component('varukorg',{
 
                 + '<hr />'
 
-                // FÖR TOTAL SUMMA OSV
-                // + '<div class="order_price">'
-                //     + '<p>Order summary</p>'
-                //     + '<h4>$400</h4>'
-                // + '</div>'
-
-                // + '<div class="order_service">'
-                //     + '<p>Additional Service</p>'
-                //     + '<h4>$10</h4>'
-                // + '</div>'
-
                 + '<div class="order_total">'
                     + '<p>Order kostnad</p>'
                     + '<h4>{{app.Sum}}</h4>'
+                    
+                + '<button v-on:click="seen = !seen">Klar</button>'
                 + '</div>'
 
 
@@ -232,7 +229,6 @@ Vue.component('varukorg',{
 
 function ReduceStockInJson(filteredShop, ID)
 {
-    // let reduceStock = this.filteredShop.find(item => item.ID === ID);
     filteredShop.forEach(reduceStock => 
     {
         if (reduceStock.ID === ID) 
@@ -247,13 +243,6 @@ function ReduceStockInJson(filteredShop, ID)
 
 function RemoveFromSum(price)
 {
-    //  var sum = 0;
-     
-    // app.cartArray.forEach(function(value) 
-    // {
-    //     sum = sum - value; 
-    // });
-
     app.Sum = app.Sum - price;
 }
 
@@ -261,47 +250,39 @@ function RemoveFromSum(price)
 /*HEMMA SIDAN */
 Vue.component('homepage', 
 { 
-    created: function () 
-    {
-        console.log("LiveArray" + " " + app.LiveArray);
-    },
     data: function () 
     {
         return{
-            filteredShop: this.shopItems(), //app.LiveArray FUNKAR INTE HÄR!!!!!?????????????
             itemlist: cart
         }
     },
             methods: 
             {
-                shopItems: function() 
-                {
-                    return axios
-                    .get('products.json')
-                    .then(response => 
-                    {
-                        this.filteredShop = response.data.categories;
-                    })
-                },
+                
                 getItem: function(ID)
                 {
-                    let itemMatch = app.LiveArray.find(item => item.ID === ID);
-                    
-                    this.shopItems = itemMatch;
-                    console.log(this.shopItems)
-                    
-                    ReduceStockInJson(this.filteredShop, ID);
-
-                    this.itemlist.push(itemMatch)
-                    console.log(this.itemlist)
-                    console.log('Tillagd')
-
-
-                    //räkna
-                    app.cartArray.push(app.LiveArray.find(item => item.ID === ID).Price)
-                    CountSum();
-
-                    
+                    var idExists = cart.some(index => 
+                        {
+                            if (index.ID === ID) 
+                            {
+                                return true;
+                            }
+                        });
+        
+                        if (idExists === false) 
+                        {
+                            let itemMatch = app.LiveArray.find(item => item.ID === ID);
+                            this.itemlist.push(itemMatch)
+                            //räkna
+                            app.cartArray.push(app.LiveArray.find(item => item.ID === ID).Price)
+                            CountSum();
+        
+                            ReduceStockInJson(app.LiveArray, ID);
+                        }
+                        else
+                        {
+                            console.log("Varan finns redan");
+                        }
                 }
 
             },
@@ -309,7 +290,7 @@ Vue.component('homepage',
             '<div>'
                 +'<div id="dataDisplay">'
                 +'<div id="dataDisplay-Text">'
-                +'<div class="product-item-start"  v-for="val3 in filteredShop" v-if="val3.firstpage === true"> ' //välj vilka som ska dyka upp
+                +'<div class="product-item-start"  v-for="val3 in app.LiveArray" v-if="val3.firstpage === true"> ' //välj vilka som ska dyka upp
                 + '<a href="#" class="text-in-productbox"><img :src=val3.Img alt=""></a>'
                 + '<div class="down-content">'
                     + '<a href="#"><h4>{{val3.Brand}}</h4></a>'
@@ -581,9 +562,6 @@ Vue.component('skor',
                 
                 product.Stock--;
                 console.log(product.Stock);
-                // app.HMKavajAmount = product.Stock;
-
-                
             }
         });
     }
@@ -620,193 +598,97 @@ Vue.component('skor',
         console.log(app.Sum);
     }
 
+    function getGUID() {
+        var u = '', i = 0;
+        while (i++ < 36) {
+            var c = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'[i - 1],
+                r = Math.random() * 16 | 0,
+                v = c == 'x' ? r : (r & 0x3 | 0x8);
+            u += (c == '-' || c == '4') ? c : v.toString(16)
+        }
+        return u;
+    }
 
-let productsClone = [];
-    Vue.component('admin', {
-        data: function (){
-            return {
-                productId: "",
-                category: "",
-                title: "",
-                price: 1,
-                description: "",
-                img: "",
-                showOnFirstPage: false,
-                inStock: 0
+Vue.component('Admin',{
+    data: function(){
+        return {
+            Title: '',
+            Price: '',
+            Description: '',
+            Type: '',
+            Img: '',
+            Quantity: '',
+            Code: ''
+        }
+    },
+    methods: {
+        addNewItem: function() {
+            var obj = {
+                ID: '',
+                Title: '',
+                Price: '',
+                Description: '',
+                Img: '',
+                Quantity: '',
+                Code: ''
             }
-        },
-        methods: {
-            addProduct: function(){
-                productsClone.push({
-                    ID: getGUID(),
-                    Category: this.category,
-                    Title: this.title,
-                    Price: parseFloat(this.price),
-                    Description: this.description,
-                    Img: this.img,
-                    ShowOnFirstPage: this.showOnFirstPage,
-                    InStock: this.inStock
-                });
-    
-    
-                app.products = JSON.parse(JSON.stringify(productsClone));
-                alert("Product added!");
-            },
-            removeProduct: function(){
-                let indexOfObj = productsClone.indexOf(p => p.ID == this.productId);
-    
-                if(indexOfObj != null){
-                    productsClone.splice(indexOfObj, 1);
-                    console.log("produkt togs bort")
-                    alert("Produkt removed!");
-                    this.clearValues();
-                }
-    
-                else{
-                    console.log("Hittade inte produkten/något gick fel");
-                    console.log("index of object: " + indexOfObj);
-                }
-            },
-            getSelectedProduct: function(productId){
-                console.log("inne i get selected product")
-                console.log("selected product id: " + this.productId);
-                let productToEdit = getCloneProduct(productId);
-    
-                if (productToEdit == null){
-                    console.log("Något gick fel!")
-                    return;
-                }
-    
-                this.category = productToEdit.Category;
-                this.title = productToEdit.Title;
-                this.price = productToEdit.Price;
-                this.description = productToEdit.Description;
-                this.img = productToEdit.Img;
-                this.showOnFirstPage = productToEdit.ShowOnFirstPage;
-                this.inStock = productToEdit.InStock;
-                app.showEditOptions = true;
-            },
-            saveProduct: function(){
-                let product = getCloneProduct(this.productId);
-                if (product == null){
-                    console.log("Kunde inte hitta produkten som skulle redigeras.")
-                    return;
-                }
-    
-                product.Category = this.category;
-                product.Title = this.title;
-                product.Price = this.price;
-                product.Description = this.description;
-                product.Img = this.img;
-                product.ShowOnFirstPage = this.showOnFirstPage;
-                product.InStock = this.inStock;
-    
-                alert("Produkt: " + product.Title + " sparades!")
-                this.clearValues();
-            },
-            clearValues: function() {
-                this.category = "";
-                this.title = "";
-                this.price = 1,
-                    this.description = "";
-                this.img = "";
-                this.showOnFirstPage = false;
-                this.inStock = 0;
-                this.productId = "";
-                app.showEditOptions = false;
+
+            obj.ID = getGUID();
+            obj.Title = this.Title;
+            obj.Price = this.Price;
+            obj.Description = this.Description;
+            obj.Img = this.Img;
+            obj.Quantity = this.Quantity;
+
+            console.log( this.Type)
+            if (this.Type === "Jacka") 
+            {
+                obj.Code = 1111;
             }
+            if (this.Type === "Klocka") 
+            {
+                obj.Code = 2222;
+            }
+            if (this.Type === "Skor") 
+            {
+                obj.Code = 3333;
+            }
+            
+            console.log('Item added')
+            app.LiveArray.push(obj);
+            console.log( app.LiveArray)
         },
-    
-        template: `<div class="admin">
-                        <h2>admin</h2>
-                        <div class="adminHeaders flex-row larger">
-                        <li @click="app.addProductPage = true">add product</li>
-                        <li @click="app.addProductPage = false">edit product</li>
-                        </div>
-                        <div class="editOrAddProduct" v-if="app.addProductPage">
-                            <h1>Add product</h1>
-                            <form id="adminForm">
-                                    <div class="details">
-                                        <label for="category">Category:</label>
-                                        <select id="category" v-model="category">
-                                            <option value="">-Select Category-</option>
-                                            <option value="TSHIRT">T-shirt</option>
-                                            <option value="UNDERWEAR">Underwear</option>
-                                            <option value="TSHIRT">Pants</option>
-                                        </select>
-    
-                                        <label for="Title">Title:</label>
-                                        <input id="title" class="inputs" type="text" name="title" v-model="title">
-    
-                                        <label for="price">Price:</label>
-                                        <input id="price" class="inputs" type="number" name="price" min="0.00" v-model="price">
-    
-                                        <label for="description">Description:</label>
-                                        <textarea name="description" id="description" rows="5" v-model="description"></textarea> 
-    
-                                        <label for="imgUrl">ImgUrl:</label>
-                                        <input id="imgUrl" type="text" class="inputs" name="img" v-model="img">
-                                        <div class="showFirstPage">
-                                            <label for="showOnFirstPage">Show on first page:</label>
-                                            <input id="showOnFirstPage" type="checkbox" class="inputs" name="showOnFirstPage" v-model="showOnFirstPage">
-                                        </div>
-                                        <label for="inStock">In stock:</label>
-                                        <input id="inStock" style="width: 60px;" type="number" class="inputs" min="1" max="100" name="inStock" v-model="inStock">                               
-                                    </div>
-                                    </form>
-                                    <button @click="addProduct">Add product</button>
-                        </div>
-    
-                        
-                        <div class="editOrAddProduct" v-if="!app.addProductPage">
-                            <h1>Edit product</h1>
-                            <form id="adminForm">
-                                    <div class="details">
-                                        <label for="productPicker">Select product to edit:</label>
-                                        
-                                        <select id="productPicker" v-model="productId">
-                                            <option value="">-Select Product-</option>
-                                            <option v-for="product in productsClone" v-bind:style="product.ShowOnFirstPage ? 'background-color: lightgray;' : '' " v-bind:value="product.ID">{{product.Title}} --- FirstPage: {{product.ShowOnFirstPage}}</option>
-                                        </select>
-    
-    
-                                        <div>
-                                        <button id="getProductBtn" @click="getSelectedProduct(productId)">Get product</button>
-                                        </div>
-                                        <div class="details noMargin" v-if="app.showEditOptions">
-                                            <label for="category">Category:</label>
-                                            <select id="category" v-model="category">
-                                                <option value="">-Select Category-</option>
-                                                <option value="TSHIRT">T-shirt</option>
-                                                <option value="UNDERWEAR">Underwear</option>
-                                                <option value="PANTS">Pants</option>
-                                            </select>
-    
-                                            <label for="Title">Title:</label>
-                                            <input id="title" class="inputs" type="text" name="title" ref="title" v-model="title">
-    
-                                            <label for="price">Price:</label>
-                                            <input id="price" class="inputs" type="number" name="price" min="0.00" v-model="price">
-    
-                                            <label for="description">Description:</label>
-                                            <textarea name="description" id="description" rows="5" v-model="description"></textarea> 
-    
-                                            <label for="imgUrl">ImgUrl:</label>
-                                            <input id="imgUrl" type="text" class="inputs" name="img" v-model="img">
-                                            <div class="showFirstPage">
-                                                <label for="showOnFirstPage">Show on first page:</label>
-                                                <input id="showOnFirstPage" type="checkbox" class="inputs" name="showOnFirstPage" v-model="showOnFirstPage">
-                                            </div>
-                                            <label for="inStock">In stock:</label>
-                                            <input id="inStock" style="width: 60px;" type="number" class="inpumts" min="1" max="100" name="inStock" v-model="inStock">    
-                                            </div>                           
-                                            </div>
-                                            </form>
-                                            <button v-if="app.showEditOptions" @click="saveProduct()">Save changes</button>
-                                            <button v-if="app.showEditOptions" style="background-color: orangered;" @click="removeProduct()">Remove product</button>
-                                            </div>
-                    </div>`
-    });
+    },
+    template: 
+    '<div>'
+        +'<div id="contariner-admin">'
+            +'<div id="grid-label-admin">'
+                    + '<label  class="admin-title" for="Title">Namn på produkt</label>'
+                    + '<input class="title-admin-box" type="text" id="Title" v-model="Title" >'
+                    + '<label class="admin-title" for="Title">Pris</label>'
+                    + '<input type="text" id="Price"  v-model="Price" >'
+                    + '<label class="admin-title" for="Title">Beskrivning</label>'
+                    + '<input type="text" id="Description"  v-model="Description" >'
+                    + '<label class="admin-title" for="Title">Typ</label>'
+                    // + '<input type="text" id="Type" v-model="Type">'
+                    +'<select id="Type" v-model="Type">'
+                    +'<option value="">Välj</option>'
+                    +'<option value="Jacka">Jacka</option>'
+                    +'<option value="Klocka">Klocka</option>'
+                    +'<option value="Skor">Skor</option>'
+                    +'</select>'
+                    + '<label class="admin-title" for="Title">Antal</label>'
+                    + '<input type="text" id="Quantity" v-model="Quantity" >'
+                    + '<label class="admin-title" for="Title">Img</label>'
+                    + '<input type="text" id="Img" v-model="Img">'
+                    +'<div id="knappen">'
+                    + '<button id="admin-knapp" v-on:click="addNewItem()">Add item</button>'
+                    + '</div>'
+            + '</div>'
+        + '</div>'
+
+     + '</div>'
+})
     
   
 
@@ -826,7 +708,9 @@ let productsClone = [];
                 watchClicked: "",
                 shoeClicked: "",
                 raderaknapp: "",
-                allaprodukterClicked: ""
+                totalcartKostnad: 0,
+                showmoms: 0,
+                loading: true,
             },
             methods: {
                showStart: function () {
@@ -848,7 +732,8 @@ let productsClone = [];
                     .then(response => 
                     {
                         this.LiveArray = response.data.categories;
-                        GlobalArray = this.LiveArray;
+                    }).finally(() => {
+                        this.loading = false;
                     })
                 }
             }

@@ -1031,8 +1031,82 @@ p {
 	display: inline;
 	color: black;
 	text-align: center;
-	padding: 15px;
+	padding: 5px;
 	text-decoration: none;
 	font-size: medium;
 	
 }
+
+/*ADMIN*/
+
+/* #contariner-admin{
+    
+    position: absolute;
+    overflow: visible;
+    width: 70%;
+    height: 55%;
+    left: 15%;
+    top: 15%;
+	display: block;
+    
+    border-style: solid; 
+} */
+
+#grid-label-admin{
+	
+	margin-top: 200px;
+	margin-left: 550px;
+    border-style: solid; 
+	width: 35%;
+    height: 400px;
+	border-color: black;
+	display:inline-block;
+}
+.admin-title {
+    display:block;
+    text-transform: uppercase;
+    width: auto;
+	padding: 10px;
+	padding-left: 10px;
+}
+
+#Title{
+	margin-left: 10px;
+	left: 10px;
+}
+#Price{
+	margin-left: 10px;
+	left: 10px;
+}
+#Description{
+	margin-left: 10px;
+	left: 10px;
+}
+#Type{
+	margin-left: 10px;
+	left: 10px;
+	padding-left: 50px;
+}
+#Quantity{
+	margin-left: 10px;
+	left: 10px;
+}
+#Img{
+	margin-left: 10px;
+	left: 10px;
+}
+
+#knappen
+{
+    border-style: solid; 
+	float: right;
+	margin-right: 20px;
+}
+#admin-knapp{
+	
+	bottom: 500px;
+	height: 50px;
+	width: 100px;
+}
+
+  
