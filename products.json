@@ -7,7 +7,8 @@
       "Price": 2000,
       "Description": "Kavaj för allt",
       "Img": "images/kavaj.jpg",
-      "firstpage": true
+      "firstpage": true,
+      "Stock": 10
     },
     {
       "ID": "4",
@@ -16,7 +17,8 @@
       "Price": 2111,
       "Description": "1996 Retro",
       "Img": "images/jacka2.jpg",
-      "firstpage": false
+      "firstpage": false,
+      "Stock": 10
     },
     {
       "ID": "5",
@@ -25,61 +27,68 @@
       "Price": 2111,
       "Description": "Sweet Puff .",
       "Img": "images/jacka3.jpg",
-      "firstpage": false
+      "firstpage": false,
+      "Stock": 10
     },
     {
       "ID": "2",
-      "Brand": "Klocka",
+      "Brand": "Blancpain",
       "Code": 2222,
       "Price": 2500,
-      "Description": "Klocka whatever",
+      "Description": "Blancpain whatever",
       "Img": "images/klocka.jpg",
-      "firstpage": true
+      "firstpage": true,
+      "Stock": 10
     },
     {
       "ID": "6",
-      "Brand": "Klocka",
+      "Brand": "Omega",
       "Code": 2222,
       "Price": 2522,
       "Description": "Klocka2 whatever",
       "Img": "images/klocka2.jpg",
-      "firstpage": false
+      "firstpage": false,
+      "Stock": 10
     },
     {
       "ID": "7",
-      "Brand": "Klocka",
+      "Brand": "Jaeger-LeCoultre",
       "Code": 2222,
       "Price": 2522,
       "Description": "Klocka3 whatever",
       "Img": "images/klocka3.jpg",
-      "firstpage": false
+      "firstpage": false,
+      "Stock": 10
     },
     {
       "ID": "3",
-        "Brand": "Skor",
+        "Brand": "Adidas Kampung",
         "Code": 3333,
         "Price": 2000,
-        "Description": "Skor hej",
+        "Description": "Adidas hej",
         "Img": "images/skor.jpg",
-        "firstpage": true
+        "firstpage": true,
+        "Stock": 10
     },
     {
       "ID": "8",
-      "Brand": "Skor",
+      "Brand": "Nike",
       "Code": 3333,
       "Price": 2444,
-      "Description": "Skor2 hej",
+      "Description": "Nike hej",
       "Img": "images/skor2.jpg",
-      "firstpage": false
+      "firstpage": false,
+      "Stock": 10
     },
     {
       "ID": "9",
-      "Brand": "Skor",
+      "Brand": "Brogue shoe",
       "Code": 3333,
       "Price": 2333,
-      "Description": "Skor3 hej",
+      "Description": "Brogue hej",
       "Img": "images/skor3.jpg",
-      "firstpage": false
+      "firstpage": false,
+      "Stock": 10
     }
   ]
 }

@@ -47,7 +47,7 @@
 /*--------Logo-----------*/
 .logo {
 	float: 	left;
-	margin-top: -6px;
+	margin-top: 15px;
 }
 .logo h2 {
 	color: #fff;
@@ -449,7 +449,7 @@ img.symbol {
 /* body, html {
     height: 100%;
     margin: 0;
-  } */
+  }
 
 #StartPage {
     position: relative;
@@ -463,12 +463,88 @@ img.symbol {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 /*------Header Bild första sidan-------*/
+#dataDisplay{
+    
+    position: absolute;
+    overflow: visible;
+    width: 80%;
+    height: 45%;
+    left: 15%;
+    top: 20%;
+    
+    /* border-style: solid; */
+    /* border-color: rgb(44, 104, 93); */
+    background-color: white;
+    opacity: 85% ;
+
+    /* Denna skapar en skroll och att texten inte går utanför diven */
+    /* overflow: hidden;
+    white-space: nowrap;
+    overflow: auto; */
+}
+
+#dataDisplay-Text{
+    font-size: large;
+    list-style-type: none;
+    
+    /*Ser till att idn hamnar i den grid jag vill*/
+    display: grid;
+	grid-template-columns:33% 33% 33%
+    /* grid-template-rows: auto;
+    grid-template-areas:
+    "#first #second #third" */
+}
+
+#dataDisplay-product-Text{
+
+    /*Ser till att idn hamnar i den grid jag vill*/
+    display: grid;
+	grid-template-columns:37% 37% 37%
+    /* grid-template-rows: auto;
+    grid-template-areas:
+    "#first #second #third" */
+}
+
+#dataDisplay-product{
+	    position: absolute;
+    overflow: visible;
+    width: 80%;
+    height: 45%;
+    left: 10%;
+    top: 10%;
+    
+    /* border-style: solid; */
+    /* border-color: rgb(44, 104, 93); */
+    background-color: white;
+    opacity: 85% ;
+
+    /* Denna skapar en skroll och att texten inte går utanför diven */
+    /* overflow: hidden;
+    white-space: nowrap;
+    overflow: auto; */
+}
+
+.product-item-start{
+	border: 1px solid #eee;
+    margin-bottom: 30px;
+	width: 300px;
+}
+
+.product-item-start img{
+	width: 100%;
+    overflow: hidden;
+}
+
+/* .row grid{
+	display: grid;
+	grid-template-columns:33% 33% 33%
+} */
 
 /*BILDERNA PÅ FÖRSTA SIDAN*/
-body {
+/* body {
 	font-family: 'Poppins', sans-serif;
 	overflow-x: hidden;
 	text-rendering: optimizeLegibility;
@@ -486,7 +562,7 @@ body {
   
 element.style {
 	position: relative;
-}
+} */
 
 
 /*BILDERNA PÅ FÖRSTA SIDAN*/
@@ -545,7 +621,9 @@ element.style {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
-    margin-right: auto;
+
+	/*Om båda är till auto stå funkar inte checkboxen*/
+    margin-right: 750px;
     margin-left: auto;
 }
 
@@ -623,14 +701,14 @@ element.style {
     margin-left: -15px;
 }
 
-*, ::after, ::before {
+* ::after, ::before {
     box-sizing: border-box;
 }
 
 
 #product-ul-rad
 {
-	    display: block;
+	display: block;
     list-style-type: disc;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -670,8 +748,8 @@ element.style {
 /*PRODUCT SIDAN lådorna*/
 .product-item {
     border: 1px solid #eee;
-    margin-bottom: 30px;
-	width: 300px;
+    margin-bottom: 10px;
+	width: 200px;
 }
 
 .product-item img {
@@ -732,7 +810,9 @@ p {
 
 .order_summary
 {
-	
+	overflow: hidden;
+    white-space: nowrap;
+    overflow: auto;
 }
 * cart {
 	margin: 0;
@@ -763,14 +843,14 @@ p {
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 8px;
 	padding: 10px;
-	background-color: #fff;
+	background-color: rgb(235, 235, 235);
   }
   
   /*
   Order Summary Card
   */
   .summary_card {
-	background-color: #fff;
+	background-color: rgb(235, 235, 235);
 	width: 350px;
 	height: 400px;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
@@ -924,4 +1004,35 @@ p {
 	text-decoration: none;
   }
 
- 
+  /*Total Cost*/
+.totalorder
+{
+	width: 80%;
+	height: 35px;
+	/* border: 2px solid #a1a1a1; */
+	padding: 10px;
+	margin: 10px;
+	margin-left: 115px;
+	margin-top: -30px;
+	border-radius: 10px;
+}
+
+
+.order-ul
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.li-order
+{
+	display: inline;
+	color: black;
+	text-align: center;
+	padding: 15px;
+	text-decoration: none;
+	font-size: medium;
+	
+}

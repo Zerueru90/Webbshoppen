@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>Document</title>
+    <title>Whatever</title>
 </head>
 
 <body>
@@ -68,12 +68,13 @@
                 
             </header>
 
+                
+            <div id="StartPage" v-if="typeOfPage === 'start' || typeOfPage === ''">
+              <homepage></homepage>
+            </div>
+
             <section id="sectionSide">
 
-                <div id="StartPage" v-if="typeOfPage === 'start' || typeOfPage === ''">
-                  <!-- <img id="s" src="images/wallpaper2.jpg"> -->
-                    <shopitems></shopitems>
-                </div>
 
                 <div class="productpage" v-if="typeOfPage === 'product'">
                     <div class="products">
@@ -83,26 +84,30 @@
                               <div class="filters">
                                 
                                 <ul id="product-ul-rad">
-                                    <li> <input type="checkbox"  v-model="allaprodukterClicked"> Alla produkter</li>
-                                    <li> <input type="checkbox" v-model="jacketClicked"> Jacka</li>
-                                    <li> <input type="checkbox" v-model="watchClicked"> Klocka</li>
-                                    <li> <input type="checkbox" v-model="shoeClicked"> Skor</li>
+                                  <li> <input type="checkbox"  v-model="allaprodukterClicked"> Alla produkter</li>
+                                  <li> <input type="checkbox" v-model="jacketClicked"> Jacka</li>
+                                  <li> <input type="checkbox" v-model="watchClicked"> Klocka</li>
+                                  <li> <input type="checkbox" v-model="shoeClicked"> Skor</li>
                                 </ul>
 
                               </div>
                             </div>
                             <div class="col-md-12">
                               <div class="filters-content">
+
                                 <div class="row grid"  v-if="allaprodukterClicked === true">
                                   <allaprodukter></allaprodukter>
                                 </div>
+
                                   <div class="row grid"  v-if="jacketClicked === true">
                                     <jacka></jacka>
 
                                   </div>
+
                                   <div class="row grid"  v-if="watchClicked === true">
                                     <klocka></klocka>
                                   </div>
+                                  
                                   <div class="row grid"  v-if="shoeClicked === true">
                                     <skor></skor>
                                   </div>
@@ -116,19 +121,14 @@
                 <div v-if="typeOfPage === 'cart'" class="cart">
                   <varukorg></varukorg>
                 </div>
+
                 <div v-if="typeOfPage === 'adminpage'" >
-                    <div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <h1 style="color: red;">Admin</h1>
-
-                    </div>
-
+                   
+                  
+                  <admin></admin>
 
                 </div>
+
 
             </section>
 
