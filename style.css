@@ -1016,14 +1016,13 @@ p {
 	margin-top: -30px;
 	border-radius: 10px;
 }
-
-
 .order-ul
 {
 	list-style-type: none;
 	margin: 0;
-	padding: 0;
+	padding: 1;
 	overflow: hidden;
+
 }
 
 .li-order
@@ -1038,7 +1037,6 @@ p {
 }
 
 /*ADMIN*/
-
 /* #contariner-admin{
     
     position: absolute;

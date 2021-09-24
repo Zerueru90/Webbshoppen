@@ -690,8 +690,6 @@ Vue.component('Admin',{
      + '</div>'
 })
     
-  
-
     var app = new Vue(
         { 
             el: '#app',
