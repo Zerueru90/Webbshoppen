@@ -708,6 +708,7 @@ Vue.component('Admin',{
                 watchClicked: "",
                 shoeClicked: "",
                 raderaknapp: "",
+                allaprodukterClicked:"",
                 totalcartKostnad: 0,
                 showmoms: 0,
                 loading: true,

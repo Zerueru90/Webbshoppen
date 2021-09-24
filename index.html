@@ -2,139 +2,139 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>Whatever</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Whatever</title>
 </head>
 
 <body>
 
-    <div id="app">
+  <div id="app">
 
-        <!--När man minimerar så startas denna-->
-        <div class="slicknav_menu">
+    <!--När man minimerar så startas denna-->
+    <div class="slicknav_menu">
 
-            <a href="#" aria-haspopup="true" tabindex="0" class="slicknav_btn slicknav_collapsed">
-                <span class="slicknav_menutxt">MENU</span>
-                <span class="slicknav_icon">
-                    <span class="slicknav_icon-bar"></span>
-                    <span class="slicknav_icon-bar"></span>
-                    <span class="slicknav_icon-bar"></span>
-                </span>
-            </a>
+      <a href="#" aria-haspopup="true" tabindex="0" class="slicknav_btn slicknav_collapsed">
+        <span class="slicknav_menutxt">MENU</span>
+        <span class="slicknav_icon">
+          <span class="slicknav_icon-bar"></span>
+          <span class="slicknav_icon-bar"></span>
+          <span class="slicknav_icon-bar"></span>
+        </span>
+      </a>
 
-            <ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
+      <ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
 
-                <li class="nav-about-us" role="presentation"><a role="menuitem" tabindex="-1">Hem</a href="#"
-                        v-on:click="showStart()"></li>
-                <li class="nav-about-us" role="presentation"><a role="menuitem" tabindex="-1">Produkter</a href="#"
-                        v-on:click="showProduct()"></li>
-
-
-                <span class="socialheader">
-                    <img class="symbol" src="images/cart.png" alt="cart" v-on:click="showCart()" href="#">
-                    <img class="symbol" src="images/profile.JPG" alt="profile" v-on:click="showAdmin()" href="#">
-                </span>
-            </ul>
-        </div>
-
-        <div class="site-wrapper">
-
-            <nav class="main-nav overlay clearfix">
-                <a class="logo" href="#">
-                    <h2>Whatever <em>Clothing</em></h2>
-                </a>
-                <ul id="menu">
-                    <li class="nav-home nav-current" role="presentation"><a href="#" v-on:click="showStart()">Hem</a>
-                    </li>
-                    <li class="nav-article-example" role="presentation"><a href="#" v-on:click="showProduct()">Produkter</a></li>
-                    <span class="socialheader" style="padding: 5%;">
-                        <img class="symbol" src="images/cart.png" href="#" v-on:click="showCart()">
-                        <img class="symbol" src="images/profile.JPG" href="#" v-on:click="showAdmin()">
-                    </span>
-                </ul>
-            </nav>
-
-            <header id="page-header">
-
-                
-            </header>
-
-          <main v-if="!loading">
-            
-            <div id="StartPage" v-if="typeOfPage === 'start' || typeOfPage === ''">
-              <homepage></homepage>
-            </div>
-
-            <section id="sectionSide">
+        <li class="nav-about-us" role="presentation"><a role="menuitem" tabindex="-1">Hem</a href="#"
+            v-on:click="showStart()"></li>
+        <li class="nav-about-us" role="presentation"><a role="menuitem" tabindex="-1">Produkter</a href="#"
+            v-on:click="showProduct()"></li>
 
 
-                <div class="productpage" v-if="typeOfPage === 'product'">
-                    <div class="products">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="filters">
-                                
-                                <ul id="product-ul-rad">
-                                  <li> <input type="checkbox"  v-model="allaprodukterClicked"> Alla produkter</li>
-                                  <li> <input type="checkbox" v-model="jacketClicked"> Jacka</li>
-                                  <li> <input type="checkbox" v-model="watchClicked"> Klocka</li>
-                                  <li> <input type="checkbox" v-model="shoeClicked"> Skor</li>
-                                </ul>
-
-                              </div>
-                            </div>
-                            <div class="col-md-12">
-                              <div class="filters-content">
-
-                                <div class="row grid"  v-if="allaprodukterClicked === true">
-                                  <allaprodukter></allaprodukter>
-                                </div>
-
-                                  <div class="row grid"  v-if="jacketClicked === true">
-                                    <jacka></jacka>
-
-                                  </div>
-
-                                  <div class="row grid"  v-if="watchClicked === true">
-                                    <klocka></klocka>
-                                  </div>
-                                  
-                                  <div class="row grid"  v-if="shoeClicked === true">
-                                    <skor></skor>
-                                  </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-
-                <div v-if="typeOfPage === 'cart'" class="cart">
-                  <varukorg></varukorg>
-                </div>
-
-                <div v-if="typeOfPage === 'adminpage'" >
-                   
-                  
-                  <admin></admin>
-
-                </div>
-
-
-            </section>
-          
-          </main>
-
-        </div>
+        <span class="socialheader">
+          <img class="symbol" src="images/cart.png" alt="cart" v-on:click="showCart()" href="#">
+          <img class="symbol" src="images/profile.JPG" alt="profile" v-on:click="showAdmin()" href="#">
+        </span>
+      </ul>
     </div>
 
-    <script src="index.js"></script>
+    <div class="site-wrapper">
+
+      <nav class="main-nav overlay clearfix">
+        <a class="logo" href="#">
+          <h2>Whatever <em>Clothing</em></h2>
+        </a>
+        <ul id="menu">
+          <li class="nav-home nav-current" role="presentation"><a href="#" v-on:click="showStart()">Hem</a>
+          </li>
+          <li class="nav-article-example" role="presentation"><a href="#" v-on:click="showProduct()">Produkter</a></li>
+          <span class="socialheader" style="padding: 5%;">
+            <img class="symbol" src="images/cart.png" href="#" v-on:click="showCart()">
+            <img class="symbol" src="images/profile.JPG" href="#" v-on:click="showAdmin()">
+          </span>
+        </ul>
+      </nav>
+
+      <header id="page-header">
+
+
+      </header>
+
+      <main v-if="!loading">
+
+        <div id="StartPage" v-if="typeOfPage === 'start' || typeOfPage === ''">
+          <homepage></homepage>
+        </div>
+
+        <section id="sectionSide">
+
+
+          <div class="productpage" v-if="typeOfPage === 'product'">
+            <div class="products">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="filters">
+
+                      <ul id="product-ul-rad">
+                        <li> <input type="checkbox" v-model="allaprodukterClicked"> Alla produkter</li>
+                        <li> <input type="checkbox" v-model="jacketClicked"> Jacka</li>
+                        <li> <input type="checkbox" v-model="watchClicked"> Klocka</li>
+                        <li> <input type="checkbox" v-model="shoeClicked"> Skor</li>
+                      </ul>
+
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="filters-content">
+
+                      <div class="row grid" v-if="allaprodukterClicked === true">
+                        <allaprodukter></allaprodukter>
+                      </div>
+
+                      <div class="row grid" v-if="jacketClicked === true">
+                        <jacka></jacka>
+
+                      </div>
+
+                      <div class="row grid" v-if="watchClicked === true">
+                        <klocka></klocka>
+                      </div>
+
+                      <div class="row grid" v-if="shoeClicked === true">
+                        <skor></skor>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="typeOfPage === 'cart'" class="cart">
+            <varukorg></varukorg>
+          </div>
+
+          <div v-if="typeOfPage === 'adminpage'">
+
+
+            <admin></admin>
+
+          </div>
+
+
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script src="index.js"></script>
 </body>
 
 </html>
