@@ -419,17 +419,17 @@ Vue.component('jacka',
         +'<div id="dataDisplay-product-Text">'
         +'<div class="product-item"  v-for="val3 in app.LiveArray" v-if="val3.Code === 1111"> ' //välj vilka som ska dyka upp
        
-                                            + '<a href="#" class="text-in-productbox"><img :src=val3.Img alt=""></a>'
-                                            + '<div class="down-content">'
-                                                + '<a href="#"><h4>{{val3.Brand}}</h4></a>'
-                                                + '<h6>{{val3.Price}} sek</h6>'
-                                                + '<p>{{val3.Description}}</p>'
-                                                + '<p>{{val3.Stock}} varor</p>'
-                                                + '<button v-on:click="getItem(val3.ID)">Köp</button>'
-                                                + '<button id="Btn">Info</button>'
-                                            +'</div>'
-                                        +'</div>'
-       
+            + '<a href="#" class="text-in-productbox"><img :src=val3.Img alt=""></a>'
+                + '<div class="down-content">'
+                    + '<a href="#"><h4>{{val3.Brand}}</h4></a>'
+                    + '<h6>{{val3.Price}} sek</h6>'
+                    + '<p>{{val3.Description}}</p>'
+                    + '<p>{{val3.Stock}} varor</p>'
+                    + '<button v-on:click="getItem(val3.ID)">Köp</button>'
+                    + '<button id="Btn">Info</button>'
+                +'</div>'
+
+        +'</div>'
         +'</div>'
         +'</div>'
     + '</div>'
@@ -588,12 +588,6 @@ Vue.component('skor',
 
     function CountSumv2(price)
     {
-        //  var sum = 0;
-         
-        // app.cartArray.forEach(function(value) 
-        // {
-        //     sum += value; 
-        // });
         app.Sum = app.Sum + price;
         console.log(app.Sum);
     }
